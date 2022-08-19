@@ -1,0 +1,9 @@
+任何vue文件script都要用导出，
+可以看到如果不写导出报错需要render；
+
+不写上面，不写setup也是可以的，属于一个实验特性
+即在script标签后面加上 setup就行
+连return都不需要写，components也不需要写
+
+传递参数要使用到一个defineProps的vue组件,
+传递事件是defineEmit

@@ -1,0 +1,20 @@
+文件依赖巨大时候，打包出的单个文件巨大，希望单独打包一些文件
+通过导入的部分就会分开打包，然后异步加载
+
+可以在main.js实现
+// 12 打包测试
+import("./12-async-component/utils/math").then((res) => {
+  console.log(res.sum(2, 3))
+})
+
+
+一般路由用异步组件
+import { defineAsyncComponent } from 'vue';
+onst AsyncCategory = defineAsyncComponent
+
+还可suspense组件
+Suspense组件作用是当你在进行一个异步加载时，先提供一些静态组件作为显示内容，然后当异步加载完毕时再显示
+Suspense组件会暂停你的组件渲染，重现一个回落组件，直到满足条件为止。
+具有default和fallback两个插槽，前者是要渲染的异步组件，后者加载中的静态组件
+
+suspense语法更简单嘛，比异步组件import什么语法

@@ -1,0 +1,16 @@
+npm install vite -D
+npm install less -D
+npm install postcss -D
+npm install postcss-preset-env -D
+
+vite对vue的支持
+npm install @vitejs/plugin-vue -D
+创建vite.config.js
+上面的依赖compiler-sfc
+npm install @vue/compiler-sfc -D
+
+npx vite
+npx vite build
+npx vite preview
+
+// 感觉还是就是轻便了好多，没有复杂的配置项，vuecli要配很多loader啥的

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-07 v-bind属性直接绑定一个对象</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 目标效果 -->
+      <div name="aaa" age="18" height="188">嘿嘿嘿</div>
+      <!-- 而不是div class="{ name="aaa" age="18" height="188" }" -->
+
+      <!-- v-bind 直接写成 : 也行 -->
+      <div v-bind="info">哈哈哈</div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            info: {
+              name: 'zly',
+              age: 18,
+              height: 188
+            }
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

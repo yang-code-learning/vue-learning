@@ -1,0 +1,21 @@
+注：这里的文件复制自vue-composition-api
+h函数——创建vnode的函数
+起源于hyperscript函数
+
+接受三个参数：必须的组件，可选的属性，可选的字符串或列表等
+---
+02
+可使用data
+或者setup
+在render函数中是可以通过this访问到setup返回的数值的
+---
+03
+有了setup就可不需要另外写render了
+同时也不能写this
+不会默认解包，因此ref引用的对象要加上value才能访问到
+---
+04
+可以渲染组件
+插槽接受函数
+this.$slots.default 查询名为所有插槽中default的插槽，因为可能没有所以要用三元运算符
+可以传参数

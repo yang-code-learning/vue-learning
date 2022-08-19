@@ -1,0 +1,25 @@
+// 自动完成编译，不要手动build
+// 方法一：监听
+"build": "webpack --watch" // at package.json
+"watch: true" // at webpack.config
+
+// 方法二：webpack dev server 不需要live server
+npm install webpack-dev-server -D
+npm run server // 但并没有打包输出，但是还是有打包的（内存里）
+// 可在webpack.fonfig继续配置devServer
+// contentBase作用是当打包资源找不到就去改目录找，
+// 一般适用于开发阶段，全Copy太麻烦，此时屏蔽插件就可以此方法替代
+// 这个已经弃用了，属性改成static，默认true从public找，或者设置directory: path.join(__dirname, 'src')
+
+// 有时候不希望全部刷新，以保持部分状态不丢失
+//采用HMR 认识模块热替代，还是devServer
+1. 开启target: "web"
+2. devServer中hot: true,
+3. 在js热处理模块更新代码
+// js要更新，vue就不需要更新了，内置这些代码
+
+npm install axios // 跨域问题
+// 本项目没有进行该测试，就是前后端处理的，还是devServer
+
+// resolve 设置模块如何被解析
+// 没怎么看，详见07工程的最后一个案例，写了但是没看

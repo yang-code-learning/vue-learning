@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-01 v-bind的基本使用</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 动态设置标签属性 -->
+      <img v-bind:src="imgURL" alt="">
+      <a v-bind:href="linkURL">百度一 下</a>
+
+      <!-- 语法糖，简写 -->
+      <img :src="imgURL" alt="">
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            imgURL: 'https://img.yzcdn.cn/vant/cat.jpeg',
+            linkURL: 'https://www.baidu.com'
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

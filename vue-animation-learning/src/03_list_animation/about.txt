@@ -1,0 +1,4 @@
+之前都是对组件，一整个的动画效果，可以针对列表过渡
+<transition-group> mode不可用，需要指定标签，如p，这样目标元素最后被p包裹
+:data-index
+delay: el.dataset.index * 0.5依次消失

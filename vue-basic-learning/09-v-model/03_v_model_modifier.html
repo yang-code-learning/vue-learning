@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09-03 v-model的修饰符使用</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 1. lazy 之前和数据绑定，现在和事件绑定 -->
+      <input type="text" v-model.lazy="message1">
+      <h2>{{ message1 }}</h2>
+
+      <!-- 2. number 默认是字符串（就算type改number），
+        现在就可以识别为number，加了字符也是取其中数字 -->
+      <input type="text" v-model.number="message2">
+      <button @click="showType">show data</button>
+      <h2>{{ message2 }}</h2>
+      
+      <!-- 3. trim 默认会读取空格，现在可以删掉前后空格 -->
+      <input type="text" v-model.trim="message3">
+      <button @click="showResult">show result</button>
+      <h2>{{ message3 }}</h2>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message1: 'Hello Vue!',
+            message2: 'Hello Vue!',
+            message3: 'Hello Vue!'
+          }
+        },
+        methods: {
+          showType() {
+            console.log(this.message2, typeof this.message2);
+          },
+          showResult() {
+            console.log(this.message3);
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

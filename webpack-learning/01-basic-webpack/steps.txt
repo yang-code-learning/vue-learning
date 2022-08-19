@@ -1,0 +1,20 @@
+npm init -> package.json
+npm install webpack webpack -D -> package-lock.json
+
+1. first way
+npm ./node_ module/.bin/webpack
+npx webpack // default index.js to dist
+npx webpack --entry ./src/main.js --output-path ./build
+// usually sparate into 1. package.json 2. npm run build 3. webpack.config.js
+
+2. second way
+package.json ->
+    "build": "webpack"
+    "build": "webpack" --entry ./src/main.js // not recommend
+    "build": "webpack" --config "xxx.config.js" // not recommend
+npm run build 
+// if config
+// 1. first "build" default, index.js and /dist/main.js, 
+// 2. second "build" directly config at package.json, 
+// 3. first "build" + config at "webpack.config.js" // recommend
+// 4. third "build" + config at xxx.config.js

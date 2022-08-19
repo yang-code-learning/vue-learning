@@ -1,0 +1,14 @@
+npm install css-loader -D
+npm install less less-loader -D
+npm install postcss postcss-cli -D
+npm install postcss-loader -D
+
+npm install autoprefixer -D
+npm install postcss-preset-env -D
+
+import "css-loader!../css/style.css"; // not recommend
+npx lessc ./text/less demo.css  // not recommend
+npx postcss --use autoprefixer -0o demo.css test.css // 添加浏览器前缀
+
+cofig->module->rule->loader // recommend
+

@@ -1,0 +1,8 @@
+// 开发阶段和部署所需的组件时不同的，配置都放在webpack.config不合适
+// 针对不同环境建立不同配置文件，在package.json修改
+
+"build": webpack --config ./config/webpack.prod.config.js
+"server": "webpack server --config ./config/webpack.dev.config.js"
+
+
+npm install webpack-merge -D

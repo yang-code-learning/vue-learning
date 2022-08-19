@@ -1,0 +1,7 @@
+那些定义变量的代码可放在其他地方，一般是hook
+---
+修改title——useTitle.js
+---
+页面滚动——useScrollPosition.js
+---
+本地存储——useLocalStorage.js

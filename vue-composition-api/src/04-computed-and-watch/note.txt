@@ -1,0 +1,24 @@
+computed
+格式：const 变量 = computed(() => 变换)
+其实等价于computed {变量：变换}
+还有set、get的格式
+
+watchEffect启动就会执行一次，观察涉及到了那些内容，
+之后那些内容发生改变，就会再次生效
+
+可停止侦听，stop是自定义函数，
+条件出发了就停止watchEffect但是任然可执行，只是不监听了
+
+清除副作用，没听懂，和上面一起不怎么用
+
+这个常用，ref引用，flush参数：post、pre、sync不建议，是挂载前后执行时机
+一般在侦听函数需要获取元素使用
+---
+watch在第一次 不会执行，需要说明那些状态变化触发监听，而且能监听前后数值
+06没咋听懂
+
+watch([() => ({...info}), name], ([newInfo, newName], [oldInfo, oldName])
+中括号必加
+
+默认可以深度这听，对于解构的{...info}默认无法监听（因为解构本质是赋值，赋值后不算ref）
+要额外设置deep: true，还有立即执行immediate选项

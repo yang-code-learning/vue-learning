@@ -1,0 +1,28 @@
+传统方法：option api，各种data、created、computed等都是option
+在对应的属性编写对应功能模块
+缺点很严重，每一个功能就得需要大量option
+
+于是又composition api来代替，在setup函数中编写代码
+
+参数：
+props
+context: attrs、slots、emit
+
+setup里面没有this，也不能用this，不然会报错this=undefine，
+
+其返回值可以在模板template中使用，意味着setup本身可用作代替data选项
+如果同时有data和setup，那就采用setup里面的
+在里面定义的方法 数据，要使用到就要返回，不然没法用
+而且会传递到reactivate函数函数中，（不理解）总之效果是有的，但是没响应到页面上
+
+为什么不能用this，因为压根没有绑定this，没有指向当前实例（ps 老师贼牛逼的指出之前文档写的错误）
+
+reactive就是vue原生的一个支持响应式组件
+import { reactive } from 'vue';
+但不支持纯数字，字符串
+
+还有ref-api，作为响应式的引用，在其中value进行取值，修改也是
+解包操作，渐层解包，只能支持简单的对象，但可以支撑reactive对象
+
+readonly 返回原生对象的只读修改，可以被其他组件使用但不能被修改
+

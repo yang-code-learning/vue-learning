@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06-05 computed和setter和getter</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 理解为计算属性就是等价于data，可以直接修改 -->
+      <!-- 不过是通过调用‘方法’处理后的data：读取用getter，直接修改就是setter -->
+      <h2>{{ fullName }}</h2>
+      <button @click="changeName">改变</button>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            name: {
+              firstName: 'John',
+              lastName: 'Doe'
+            }
+          }
+        },
+        computed: {
+          // getter方法的语法糖
+          // fullName: function() {
+          //   return this.name.firstName + " " + this.name.lastName;
+          // }
+
+          // 完整写法
+          fullName: {
+            get: function() {
+              return this.name.firstName + " " + this.name.lastName;
+            },
+            set: function(newValue) {
+              console.log(newValue);
+              console.log(this.name.firstName);
+              const newName = newValue.split(' ');
+              this.name.firstName = newName[0];
+              this.name.lastName = newName[1];
+              console.log(this.name.firstName);
+            }
+          }
+        },
+        methods: {
+          changeName() {
+            this.fullName = 'Tom Cat';
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

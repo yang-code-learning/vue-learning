@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-02 注册全局组件</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <h2>{{ title }}</h2>
+      <p>{{ desc }}</p>
+      <my-component></my-component>
+      <my-component-b></my-component-b>
+    </template>
+
+    <template id="component-a">
+      <!-- <div>This is another component</div> -->
+      <h2>{{ message }}</h2>
+      <h2>{{ title }}</h2>
+      <p>{{ desc }}</p>
+      <button @click="btnClick">点一下</button>
+    </template>
+
+    <template id="component-b">
+      <div>
+        <h2>{{ message }}</h2>
+        <button @click="btnClick">点一下</button>
+      </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!',
+            title: 'Vue.js',
+            desc: 'A progressive framework for building user interfaces'
+          }
+        }
+      }
+
+      const app = Vue.createApp(App);
+
+      // 注册全局组件
+      app.component('my-component', {
+        // 下面两种方法二选一，和大App其实是一样的
+        // template: '<div>This is a component</div>',
+        template: "#component-a",
+        data() {
+          return {
+            message: 'Loving you!',
+            title: 'Kokomi',
+            desc: 'A beautiful girl'
+          }
+        },
+        methods: {
+          btnClick() {
+            this.desc = '玩一年';
+          }
+        }
+      });
+      app.component('my-component-b', {
+        // 下面两种方法二选一，和大App其实是一样的
+        // template: '<div>This is a component</div>',
+        template: "#component-b",
+        data() {
+          return {
+            message: 'Loving you!'
+          }
+        },
+        methods: {
+          btnClick() {
+            this.message = '装备不花一分钱';
+          }
+        }
+      });
+      app.mount('#app');
+    </script>
+</body>
+
+</html>

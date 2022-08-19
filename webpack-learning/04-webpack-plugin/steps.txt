@@ -1,0 +1,11 @@
+npm install clean-webpack-plugin -D // 在build时候重新“清洗”导出文件
+npm install html-webpack-plugin -D // 在导出目录自动生成index.html，甚至原本的都不用写
+// 可以添加其他设置项，但是会报错，采用下面内置的一个插件
+const { DefinePlugin } = require("webpack");
+// 可以设置模板，一般是public/index.html
+
+npm install copy-webpack-plugin -D // 避免public的一些文件也被放进输出
+
+// 方便debug
+mode: "development", 
+devtool: "source-map",

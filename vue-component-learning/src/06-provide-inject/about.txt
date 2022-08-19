@@ -1,0 +1,7 @@
+关于数据传输，会有警告，很烦，要在index.js配置
+// 这里的配置项是 provide 和 inject 相关的：不设置就总会有一个无关紧要的警告
+// 采用响应式computed时，接收端的对应参数应该要加上.value，
+// 警告推荐加上如下配置然后就不用加上value，但是这默认就是true，但是非要有个警告
+app.config.unwrapInjectedRef = true
+
+

@@ -1,0 +1,17 @@
+npm install @babel/core @babel/cli -D 
+// 后面如有webpack可不装，装了就可以作为独立的工具
+
+// demo进行测试，将ES6转换成ES5
+npx babel demo.js --out-dir demo
+npx babel demo.js --out-file demo/test.js
+// 转换需要使用插件，因此要额外安装
+npm install @babel/plugin-transform-arrow-functions -D // 箭头函数转换
+npm install @babel/plugin-transform-block-scoping -D // 块级作用域转换
+npx babel demo.js --out-file demo/test.js --plugins=@babel/plugin-transform-arrow-functions,@babel/plugin-transform-block-scoping
+// 离谱，插件之间的逗号还不能空格
+
+// 上面一个个安装太麻烦，可设置预设（一系列常用的）
+npm install @babel/preset-env -D
+npx babel demo.js --out-file demo/test.js --presets=@babel/preset-env
+
+npm install babel-loader -D // 注意不需要加@babel

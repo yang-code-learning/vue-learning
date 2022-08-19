@@ -1,0 +1,10 @@
+终于实现了页面切换，之前是参数传递实现切换（06）
+之后又是slot，组件插入绑定，本质是还是静态填充
+现在终于到了组件切换，
+可以用else-if简单实现
+这里使用component实现
+<component :is="item"></component>
+
+keep-alive 保证组件内容缓存，计数器数字就会保留
+可设置属性：include、exclude、max，设置那些组件缓存
+根据name查找

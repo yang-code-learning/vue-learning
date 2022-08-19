@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-03 注册局部组件</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <h2>{{ message }}</h2>
+      <component-c></component-c>
+    </template>
+
+    <template id="component-a">
+      <h2>Component A</h2>
+      <p>aaaaaaa</p>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const ComponentB = {
+        template: '#component-a',
+      };
+      const App = {
+        template: '#my-app',
+        // 局部注册
+        components: {
+          // 一般写法 key（组件名称）：value（组件对象）
+          // 这里用驼峰，实际标签调用要使用杠
+          // 写的复杂点，不过关系清晰多了
+          ComponentC: ComponentB,
+        },
+        data() {
+          return {
+            message: 'Hello Vue!'
+          }
+        }
+      };
+      const app = Vue.createApp(App);
+      // 下面属于全局注册，上面的只是声明（不行下面注释掉）
+      // app.component('component-a', ComponentA);
+      app.mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-06 v-bind的动态绑定属性名称</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 标准格式 :prop="" 语法v-bind:[propname]="value" 会自动替换其中propname和value-->
+      <div :[name]="value">嘿嘿嘿</div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!',
+            name: 'zly',
+            value: 'me'
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

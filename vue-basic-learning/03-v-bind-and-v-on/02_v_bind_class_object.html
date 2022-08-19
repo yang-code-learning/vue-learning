@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-02 v-bind绑定class-对象语法</title>
+  <style>
+    .active {
+      color: red;
+    }
+    .title {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 花括号内的东西就是对象，前面的冒号就会解析括号的内容 -->
+      <!-- 下例就是可以通过布尔值决定是否要使用active 可以有多个键值对，仅可修改值，键不可-->
+      <!-- 键可以加引号也可不加（我觉着加好些表示固定，仅由f/t决定有无，data那边是不加保持匹配）  -->
+      <div :class="{'active': isActive, title: false}">哈哈哈</div>
+
+      <!-- 将整个属性视为属性对象 -->
+      <div :class="classObj">嘿嘿嘿</div>
+      
+      <!-- 可以将对象作为函数返回值 -->
+      <div :class="getClassObj()">呵呵呵</div>
+
+      <button @click="toggle">点击切换</button>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!',
+            isActive: true,
+            classObj: {
+              active: false, 
+              title: true
+            }
+          }
+        },
+        methods: {
+          toggle() {
+            this.isActive = !this.isActive;
+          },
+          getClassObj() {
+            return {
+              active: this.isActive,
+              title: false
+            }
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

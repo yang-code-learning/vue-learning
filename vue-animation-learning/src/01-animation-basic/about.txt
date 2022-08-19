@@ -1,0 +1,19 @@
+<transition>
+name属性
+
+enter-from 插入之前生效，插入后的下一帧移除
+active：记录过度时间、曲线函数。
+
+过渡和帧动画可共存（01和02可放一起），
+如果时间不一样，可以设置type属性，
+但是一般不用，因为设置时间一样的
+
+duration属性，那么就无视style设施的时间，
+也很少使用
+
+mode属性
+in-out：先显示再执行消失的，out-in就反过来
+
+appear属性：
+默认为false，设置为true就表示加载页面就触发动画
+可以直接简写appear，不用加=true

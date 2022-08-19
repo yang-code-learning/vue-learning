@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-10 v-on的修饰符</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 什么阻止冒泡，没听懂 -->
+      <div @click="divClick">
+        <button @click.stop="btnClick">点击</button>
+      </div>
+      <!-- 不加修饰符的效果就是每输入一个字符就计数，加了只有在enter时候计数 -->
+      <input type="text" @keyup.enter="enterKeyup">
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!'
+          }
+        },
+        methods: {
+          divClick() {
+            console.log('div click');
+          },
+          btnClick() {
+            console.log('btn click');
+          },
+          enterKeyup(event) {
+            console.log('enter keyup', event.target.value);
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

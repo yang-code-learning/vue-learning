@@ -1,0 +1,9 @@
+生命周期：初始化、挂载、更新渲染、卸载
+
+打开页面：created、mounted
+更新内容：updated
+卸载：unmounted，曾经有destroy
+
+还有activated，用于keep-alive切换，这里没有演示
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-05 v-bind绑定style-数组语法</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 测试半天，发现好像只能多个对象作为列表元素 -->
+      <!-- 一个对象+直接花括号对象/原生语法组合都不行 -->
+      <div :style="[styleObj, styleObj2]">嘿嘿嘿</div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!',
+            styleObj: {
+              color: 'red',
+              fontSize: '20px'
+            },
+            styleObj2: {
+              textDecoration: 'underline',
+            }
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

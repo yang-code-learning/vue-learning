@@ -1,0 +1,12 @@
+isProxy、isReactive、isReadonly、toRaw、shoallowReactive，shallowReadonly
+toapi
+
+ref-api
+toRef toRefs
+unref isref
+
+关于浅层引用，如果是对象，{a:1,b:2}这样，那么对象.value是算第一层的，再往后就不可修改
+
+这一章好像没啥必要听的，自己也说用不上。。。
+
+还有CustomRef，他说用不上，还有点难，就不听了也不写了，代码直接复制老师的

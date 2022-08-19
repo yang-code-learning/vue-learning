@@ -1,0 +1,8 @@
+.title {
+  color: #00adb5;
+  font-size: 30px;
+  font-weight: 100;
+
+  /* 下为添加前缀postcss插件测试 */
+  user-select: none; 
+}

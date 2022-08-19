@@ -1,0 +1,23 @@
+npm install animate.css
+
+main.js 
+import 'animate.css'
+
+可以写在style，也可以作为属性插入标签
+
+---
+
+gsap
+钩子函数
+npm install gsap
+gsap
+import gsap from 'gsap'
+to 从默认状态到设置，from就反过来
+done表示动画结束，类似于函数里return的作用 
+
+:css=false
+不执行自定义的那些动画，因为这里的done同时也会影响到css的，
+还可以跳过css检测，提高性能
+
+数字递增的效果利用了监听，可以用计算属性也可不用
+

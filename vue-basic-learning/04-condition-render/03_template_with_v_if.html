@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04-03 template和v-if的结合使用</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <button @click="isShow = !isShow">Toggle</button>
+      <!-- 用模板的好处是实际网页并不会渲染这项template，否则使用div，h2外面还有一层div -->
+      <template v-if="isShow">
+        <h2>{{ message }}</h2>
+        <h2>{{ message }}</h2>
+        <h2>{{ message }}</h2>
+      </template>
+      
+      <template v-else>
+        <h2>{{ message2 }}</h2>
+        <h2>{{ message2 }}</h2>
+        <h2>{{ message2 }}</h2>
+      </template>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!',
+            message2: 'Hello you!',
+            isShow: true
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

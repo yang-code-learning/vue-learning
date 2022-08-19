@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-04 v-bind绑定style-对象语法</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 花括号内的东西就是对象，前面的冒号就会解析括号的内容 -->
+      <!-- 采用驼峰命名法或横杠，横杠就要加引号（我也偏好加引号，因为在这里键是不可修改的） -->
+      <div :style="{ 'color': finalColor, 'font-size': finalSize + 'px'}">哈哈哈</div>
+
+      <!-- 可以采用对象整体绑定，但是横杠命名就要加引号的，格式不统一，推荐用驼峰 -->
+      <div :style="finalStyleObj">呵呵呵</div>
+      
+      <!-- 函数返回值是对象也可以 -->
+      <div :style="getStyle()">吼吼吼</div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!',
+            finalColor: 'red',
+            finalSize: 30,
+            finalStyleObj: {
+              color: 'blue',
+              fontSize: '30px',
+              backgroundColor: '#ccc',
+            }
+          }
+        },
+        methods: {
+          getStyle() {
+            return {
+              color: this.finalColor,
+              fontSize: this.finalSize + 'px',
+              backgroundColor: 'green',
+            }
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

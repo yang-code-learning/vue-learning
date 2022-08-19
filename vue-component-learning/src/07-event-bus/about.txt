@@ -1,0 +1,6 @@
+之前的是传输数据
+传输函数官方已经不支持了，但又第三方插件
+npm install  mitt
+新建eventbus.js
+
+二儿子传送事件给大孙子（about to HomeContent）

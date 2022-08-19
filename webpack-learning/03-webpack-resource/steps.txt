@@ -1,0 +1,7 @@
+npm install file-loader -D 
+// css-loader新版本要额外设置才能在案例（使用class插入图片、字体）生效
+
+npm install url-loader -D // 功能覆盖file-loader
+// url-loader要是需要css-loader中额外设置
+
+webpack5默认有一个asset module type 就不需要上面各种loader

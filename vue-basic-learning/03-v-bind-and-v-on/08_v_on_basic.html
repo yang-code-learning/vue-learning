@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03-08 v-on的基本使用</title>
+
+  <style>
+    .area {
+      width: 100px;
+      height: 100px;
+      background: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <template id="my-app">
+      <!-- 完整写法：v-on:事件="方法" -->
+      <button v-on:click="btnClick">按钮</button>
+
+      <!-- 语法糖：v-on:事件 改成 @事件 -->
+      <div class="area" @mousemove="areaMove">区域</div>
+
+      <!-- 内联，直接写成表达式不引用方法 -->
+      <button @click="counter++">{{ counter }}</button>
+
+      <!-- 绑定对象（多个对象），和03-07类似可直接用@ -->
+      <div class="area" v-on="{ mousemove: areaMove, click: btnClick }">区域2</div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: 'Hello Vue!',
+            counter:100
+          }
+        },
+        methods: {
+          btnClick() {
+            console.log('按钮被点击了');
+          },
+          areaMove() {
+            console.log('鼠标移动了');
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

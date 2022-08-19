@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09-02 v-model的其他表单</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    
+    <template id="my-app">
+      <!-- 1.textarea -->
+      <label>
+        <span>自我介绍</span>
+        <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+      </label>
+      <h2>intro: {{ message }}</h2>
+    
+      <!-- 2. input checkbox -->
+      <label for="">
+        <span>同意</span>
+        <input id="agree" type="checkbox" v-model="isAgree">
+      </label>
+      <h2>isAgree: {{ isAgree }}</h2>
+
+      <!-- 3. input multi-check -->
+      <span>你的爱好：</span>
+      <label for="sing">
+        <input id="sing" type="checkbox" v-model="hobbies" value="唱">
+        <span>唱</span>
+      </label>
+      <label for="jump">
+        <input id="jump" type="checkbox" v-model="hobbies" value="跳">
+        <span>跳</span>
+      </label>
+      <label for="rap">
+        <input id="rap" type="checkbox" v-model="hobbies" value="Rap">
+        <span>RAP</span>
+      </label>
+      <h2>hobbies: {{ hobbies }}</h2>
+
+      <!-- 4.input radio -->
+      <span>性别:</span>
+      <label for="male">
+        <input id="male" type="radio" v-model="gender" value="Male">
+        <span>男</span>
+      </label>
+      <label for="female">
+        <input id="female" type="radio" v-model="gender" value="Famale">
+        <span>女</span>
+      </label>
+      <h2>gender: {{ gender }}</h2>
+
+      <!-- 5. selcet -->
+      <span>喜欢的水果：</span>
+      <select v-model="fruit">
+        <option value="apple">苹果</option>
+        <option value="apple">橘子</option>
+        <option value="apple">香蕉</option>
+      </select>
+      <h2>friut: {{ fruit }}</h2>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+      const App = {
+        template: '#my-app',
+        data() {
+          return {
+            message: '全明星制作人大家好!',
+            isAgree: false,
+            hobbies: [],
+            gender: '',
+            fruit: ''
+          }
+        }
+      }
+
+      Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

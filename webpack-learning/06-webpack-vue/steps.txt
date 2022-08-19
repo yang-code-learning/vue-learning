@@ -1,0 +1,8 @@
+npm install vue@next
+// 这里最好看下PPT，上面vue的不同版本适用场景
+
+import { createApp } from 'vue/dist/vue.esm-bundler';
+// 使用了后面的vue-loader就不用一大串了，直接vue，这里适用于没有vue文件，直接写在js的时候
+
+npm install @vue/compiler-sfc vue-loader@next // 解析vue文件
+const { VueLoaderPlugin } = require("vue-loader"); // 还需要依赖

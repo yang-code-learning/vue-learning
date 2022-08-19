@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>00-01 对象的引用-浅拷贝-深拷贝</title>
+</head>
+<body>
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+  <!-- 1. 对象引用幅值 -->
+  <script>
+    // 对象是引用类型
+    const info1 = {name: "csb", age: 18};
+    const obj1 = info1;
+    info1.name = "zly";
+    console.log(obj1.name); // zly
+  </script>
+  
+  <!-- 2. 对象的浅拷贝 -->
+  <script>
+    const info2 = {name: "csb", age: 18, score: {math: 100, english: 90}};
+    const obj2 = Object.assign({}, info2);
+    // const obj2 = _.clone(info2) // lodash的clone方法
+    info2.name = "zly";
+    info2.score.math = 99;
+    // 第一层的属性独立，第二层还是引用类型，它改我也改
+    console.log(obj2.name, obj2.score.math); // csb 99 
+  </script>
+  
+  <!-- 3. 对象的深拷贝 -->
+  <script>
+    const info3 = {name: "csb", age: 18, score: {math: 100, english: 90}};
+    // const obj3 = JSON.parse(JSON.stringify(info3));
+    const obj3 = _.cloneDeep(info3); // lodash的cloneDeep方法
+    info3.score.math = 50;
+    console.log(obj3.score.math);
+  </script>
+
+</body>
+</html>
